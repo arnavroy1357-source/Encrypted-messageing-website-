@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EmW – Encrypted Messaging Website</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- SPLASH SCREEN -->
+<div id="splash" class="splash">
+  <div class="splash-logo">EmW</div>
+  <div class="splash-text">Encrypted Messaging Website</div>
+</div>
+
+<div class="bg-glow"></div>
+
+<div class="container">
+
+  <!-- HOME -->
+  <div id="home" class="page active">
+    <h1>EmW</h1>
+    <p class="subtitle">Encrypted Messaging Website</p>
+    <button class="btn encrypt" onclick="openEncrypt()">🔐 Encrypt</button>
+    <button class="btn decrypt" onclick="openDecrypt()">🔓 Decrypt</button>
+  </div>
+
+  <!-- ENCRYPT -->
+  <div id="encrypt" class="page">
+    <h2>🔐 Encrypt</h2>
+    <p class="hint">Message → Encrypted Text</p>
+
+    <textarea id="plainText" placeholder="Enter message (no emojis)"></textarea>
+
+    <input id="encPassword" type="password" placeholder="Password">
+    <div class="strength"><div id="strengthBar"></div></div>
+
+    <button class="btn encrypt" onclick="encryptMessage()">Encrypt</button>
+
+    <textarea id="encryptedOutput" placeholder="Encrypted output"></textarea>
+    <button class="btn copy" onclick="copyText('encryptedOutput')">📋 Copy</button>
+
+    <button class="btn back" onclick="goHome()">⬅ Back</button>
+  </div>
+
+  <!-- DECRYPT -->
+  <div id="decrypt" class="page">
+    <h2>🔓 Decrypt</h2>
+    <p class="hint">Encrypted Text → Message</p>
+
+    <textarea id="encryptedInput" placeholder="Paste encrypted text"></textarea>
+    <input id="decPassword" type="password" placeholder="Password">
+
+    <button class="btn decrypt" onclick="decryptMessage()">Decrypt</button>
+
+    <textarea id="decryptedOutput" placeholder="Decrypted message"></textarea>
+    <button class="btn copy" onclick="copyText('decryptedOutput')">📋 Copy</button>
+
+    <button class="btn back" onclick="goHome()">⬅ Back</button>
+  </div>
+
+  <p id="warning" class="warning"></p>
+
+  <footer>⚡ EmW • Secure Messaging UI</footer>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
